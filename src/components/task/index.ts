@@ -1,2 +1,2 @@
-export { AddTodo } from "./add-todo";
+export { AddTask } from "./add-task";
 export { TodoComponent } from "./todo";

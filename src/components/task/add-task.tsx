@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { useTodoStore } from '../../store/store';
+import { useTaskStore } from '../../store/store';
 import { Input, InputOnChangeData } from '@fluentui/react-components';
+import { Add16Regular as Checkbox } from '@fluentui/react-icons';
 
-export const AddTodo = () => {
-  const addTodo = useTodoStore((state) => state.addTodo);
+export const AddTask = () => {
+  const addTask = useTaskStore((state) => state.addTask);
   const [title, setTitle] = React.useState<string>('');
 
   const onChange = (ev: React.ChangeEvent<HTMLInputElement>, data: InputOnChangeData) => {
@@ -12,11 +13,18 @@ export const AddTodo = () => {
 
   const onKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
-      addTodo(title, '');
+      addTask(title);
       setTitle('');
     }
   }
   return (
-    <Input placeholder="Add a task" value={title} onChange={onChange} onKeyDown={onKeyPress} />
+    <Input
+      style={{ border: 0 }}
+      contentBefore={< Checkbox />}
+      appearance='underline'
+      placeholder="Add a task" value={title}
+      onChange={onChange}
+      onKeyDown={onKeyPress}
+    />
   );
 }

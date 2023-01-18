@@ -14,7 +14,12 @@ function createWindow() {
       nodeIntegration: true
     }
   });
-  win.loadURL(startUrl);
+  if (process.env.ELECTRON_START_URL) {
+    win.loadURL(startUrl);
+  } else {
+    win.loadFile('index.html');
+  }
+
   app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
       app.quit()

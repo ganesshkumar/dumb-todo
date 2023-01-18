@@ -1,12 +1,18 @@
 {
   "name": "dumb-todo",
-  "version": "0.1.0",
+  "description": "A dumb todo app for managing daily tasks",
+  "author": {
+    "name": "Ganesh Kumar",
+    "email": "rpganesshkumar@gmail.com"
+  },
+  "version": "0.1.1",
   "private": false,
   "productName": "Dumb Todo",
   "main": "public/electron.js",
   "homepage": "./",
   "dependencies": {
     "@fluentui/react-components": "^9.9.1",
+    "@fluentui/react-icons": "^2.0.192",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -23,9 +29,9 @@
     "zustand": "^4.3.2"
   },
   "scripts": {
-    "start-electron": "set ELECTRON_START_URL=http://localhost:3000 && electron .",
-    "package": "electron-builder build --mac --win -c.extraMetadata.main=build/electron.js --publish never",
-    "publish": "electron-builder build --mac --win --publish always",
+    "start-electron": "electron .",
+    "package": "electron-builder build --win -c.extraMetadata.main=build/electron.js --publish never",
+    "publish": "electron-builder build --win --publish always",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -50,11 +56,13 @@
     ]
   },
   "build": {
+    "appId": "com.ganesshkumar.dumb-todo",
+    "productName": "Dumb Todo",
     "mac": {
       "publish": {
         "provider": "github",
-        "owner": "Github Owner",
-        "repo": "Repository Name",
+        "owner": "ganesshkumar",
+        "repo": "dumb-todo",
         "private": false,
         "token": ""
       }
@@ -62,8 +70,8 @@
     "win": {
       "publish": {
         "provider": "github",
-        "owner": "Github Owner",
-        "repo": "Repository Name",
+        "owner": "ganesshkumar",
+        "repo": "dumb-todo",
         "private": false,
         "token": ""
       }
@@ -75,7 +83,7 @@
     "publish": {
       "provider": "github",
       "private": false,
-      "owner": "Github Owner"
+      "owner": "ganesshkumar"
     }
   },
   "devDependencies": {
